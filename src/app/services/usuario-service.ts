@@ -10,17 +10,17 @@ export class UsuarioService {
 
   private http = inject(HttpClient);
 
-  private API_USARIOS = 'https://app-fire-98f40-default-rtdb.firebaseio.com/usuarios.json'
+  private API_USUARIOS = 'https://app-fire-98f40-default-rtdb.firebaseio.com/usuarios.json'
 
   //Método POST
   postUsuarios(usuario:Usuario):Observable<Usuario>{
-    return this.http.post<Usuario>(this.API_USARIOS, usuario);
+    return this.http.post<Usuario>(this.API_USUARIOS, usuario);
   }
   
   //GET
  getUsuarios(): Observable<Usuario[]> {
   return this.http
-    .get<{ [key: string]: Usuario }>(this.API_USARIOS)
+    .get<{ [key: string]: Usuario }>(this.API_USUARIOS)
     .pipe(
       map(res => {
         if (!res) return [];
